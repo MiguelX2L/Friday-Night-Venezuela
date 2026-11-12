@@ -1,0 +1,45 @@
+BEAT BRAWL - PROYECTO PARA GENERAR EL APK (ANDROID)
+===================================================
+
+Esto es una app de Android que solo abre tu juego (version 32 bits, ligera) en
+pantalla completa. El APK se compila solo en GitHub, sin instalar nada.
+
+OPCION A - CON GITHUB (la mas facil, ~10 minutos)
+-------------------------------------------------
+1. Entra a https://github.com , crea una cuenta (gratis) y toca "New repository".
+   Ponle un nombre (ej. beat-brawl), dejalo en Private y toca "Create repository".
+2. En el repositorio nuevo toca "uploading an existing file" (o Add file > Upload files).
+3. Arrastra TODO lo que hay dentro de esta carpeta (app, .github, build.gradle,
+   settings.gradle, gradle.properties, etc.). Cada parte del juego pesa menos de
+   20 MB, asi que la web de GitHub las acepta.
+   - Si tu sistema oculta la carpeta ".github" y no se sube: en el repo toca
+     Add file > Create new file, escribe como nombre   .github/workflows/build-apk.yml
+     y pega el contenido del archivo  build-apk-copia.txt  que viene en esta carpeta.
+4. Toca "Commit changes".
+5. Ve a la pestana "Actions". Veras "Build APK" corriendo (tarda 5-10 min).
+   Si no arranca solo: Actions > Build APK > Run workflow.
+6. Cuando salga la palomita verde, entra a esa ejecucion y baja a "Artifacts":
+   descarga "beat-brawl-apk". Dentro del zip esta  app-debug.apk .
+7. Pasa el APK al telefono e instalalo (tienes que permitir "instalar apps de
+   fuentes desconocidas" para tu navegador o gestor de archivos).
+
+OPCION B - CON ANDROID STUDIO
+-----------------------------
+1. Ejecuta  unir-juego.bat  (Windows) o  unir-juego.sh  (Linux/Mac) dentro de esta
+   carpeta: junta las partes y crea app/src/main/assets/game.html
+2. Abre la carpeta en Android Studio y espera a que sincronice.
+3. Build > Build Bundle(s) / APK(s) > Build APK(s).
+
+COMO SE PORTA EL JUEGO EN LA APP
+--------------------------------
+- Pantalla completa, sin barras, la pantalla no se apaga.
+- Gira con el sensor (vertical u horizontal).
+- Boton Atras = tecla ESC del juego (pausa / volver). Dos veces seguidas = salir.
+- Los ajustes, mejores puntuaciones y teclas se guardan en el telefono.
+- Para cambiar el juego mas adelante: reemplaza las partes de app/game-parts
+  (por ejemplo cortando el nuevo HTML en pedazos de menos de 20 MB) y vuelve a
+  correr la compilacion.
+
+NOTA: este proyecto no se pudo compilar ni probar en un telefono antes de
+entregartelo. Si la compilacion da error, copia el mensaje rojo de la pestana
+Actions y se corrige.
